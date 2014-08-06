@@ -1,0 +1,23 @@
+div.navbar.navbar-inverse.navbar-fixed-top
+  div.container
+    div.navbar-header
+      button.navbar-toggle.collapsed(data-toggle='collapse', data-target='.my-navbar-collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    div.navbar-collapse.my-navbar-collapse.collapse
+      ul.nav.navbar-nav
+        li: a(href='/') Home
+        li: a(href='/about') About
+        li: a(href='/contact') Contact
+      ul.nav.navbar-nav.navbar-right
+        if isLoggedIn && user && user.username
+          li: a(href='/account')
+            i.fa.fa-user
+            |  #{user.username}
+          li: a(href='/logout') Logout
+        else
+          li: a(href='/signup') Sign Up
+          li: a(href='/signin')
+            i.fa.fa-user
+            |  Sign In

@@ -1,0 +1,52 @@
+include /mixins/all
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge, chrome=1")
+    title= title || 'Koa Web Boilerplate'
+    meta(name="description", content="")
+    meta(name="author", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+
+    if !useLiveReload && NODE_ENV === 'production'
+      link(rel='stylesheet', href='/stylesheets/app.min.css')
+    else
+      link(rel='stylesheet', href='/lib/bower_components/bootstrap/dist/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/lib/bower_components/font-awesome/css/font-awesome.min.css')
+      link(rel='stylesheet', href='/stylesheets/app.css')
+
+    if !useLiveReload && NODE_ENV === 'production'
+      script(src='/javascripts/app.min.js')
+    else
+      script(src='/lib/bower_components/jquery/dist/jquery.min.js')
+      script(src='/lib/bower_components/bootstrap/dist/js/bootstrap.min.js')
+      script(src="/javascripts/app.js")
+
+  body
+    include /partials/header
+
+    div.page
+      div.container
+        block body
+
+    div.footer
+      div.container
+        span.copyright.pull-right
+          |&#169; #{copyrightYear} #{copyrightName}
+        ul.links
+          li: a(href='/') Home
+          li: a(href='/contact') Contact
+          li: a(href='/recover') Forgot Password?
+        div.clearfix
+
+    div.ajax-spinner
+      img(src='/images/ajax-pulse.gif')
+
+    block scripts
+
+    if useLiveReload
+      script document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')

@@ -1,0 +1,35 @@
+extends /layout
+
+block head
+  title Sign Up
+
+block body
+  div.row
+    div.col-sm-6
+      div.page-header
+        h1 Sign Up
+      div#signup
+        form(method='POST')
+          div.alerts
+            if errors && errors.error
+              div.alert.alert-danger.alert-dismissable
+                button.close(type='button', data-dismiss='alert') &times;
+                | #{errors.error}
+          div.form-group(class!=(errors && errors.username) ? "has-error" : "")
+            label.control-label Pick a Username:
+            input.form-control(type='text', name='username', value!='#{username || ""}')
+            span.help-block #{(errors && errors.username) ? errors.username: ''}
+          div.form-group(class!=(errors && errors.email) ? "has-error" : "")
+            label.control-label Enter Your Email:
+            input.form-control(type='text', name='email', value!='#{email || ""}')
+            span.help-block #{(errors && errors.email) ? errors.email: ''}
+          div.form-group(class!=(errors && errors.password) ? "has-error" : "")
+            label.control-label Create a Password:
+            input.form-control(type='password', name='password', value!='#{password || ""}')
+            span.help-block #{(errors && errors.password) ? errors.password: ''}
+          div.form-group(class!=(errors && errors.orgName) ? "has-error" : "")
+            label.control-label Choose an Organization Name:
+            input.form-control(type='orgName', name='orgName', value!='#{orgName || ""}')
+            span.help-block #{(errors && errors.orgName) ? errors.orgName: ''}
+          div.form-actions
+            button.btn.btn-primary.btn-login(type='submit') Create Account

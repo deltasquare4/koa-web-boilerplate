@@ -1,0 +1,27 @@
+extends /layout
+
+block header-actions
+  a.pull-right(href='/') Home
+block body
+  div.row
+    div.col-sm-6
+      div.page-header
+        h1 Sign Up
+      div#signup
+        form(method='POST')
+          h3 Login
+          div.alerts
+            if errors && errors.error
+              div.alert.alert-danger.alert-dismissable
+                button.close(type='button', data-dismiss='alert') &times;
+                | #{errors.error}
+          div.form-group(class!=(errors && errors.username) ? "has-error" : "")
+            input.form-control(type='text', name='username', value!='#{username || ""}',placeholder='Email')
+            span.help-block #{(errors && errors.username) ? errors.username: ''}
+          div.form-group(class!=(errors && errors.password) ? "has-error" : "")
+            input.form-control(type='password', name='password', value!='#{password || ""}',placeholder='Password')
+            span.help-block #{(errors && errors.password) ? errors.password: ''}
+          div.form-actions
+            a.under-construction.btn.btn-default(href='/recover') Forget anything?
+            | &nbsp;&nbsp;
+            button.btn.btn-primary.btn-login(type='submit') Sign In

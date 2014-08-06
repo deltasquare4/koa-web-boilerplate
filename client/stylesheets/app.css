@@ -1,0 +1,122 @@
+body {
+  padding-top: 50px;
+}
+h1,
+h2 {
+  letter-spacing: -1px;
+}
+fieldset {
+  min-width: 0;
+  margin-bottom: 20px;
+}
+table thead th {
+  background-color: #ddd;
+}
+select,
+textarea,
+input,
+.form-control {
+  font-size: 16px;
+}
+.input-group-btn .btn-group:first-of-type .btn {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.dropdown-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 12px;
+}
+.navbar {
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.125);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.125);
+}
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: #003d5f;
+  position: relative;
+  display: inline-block;
+}
+.navbar .navbar-brand .navbar-logo {
+  position: absolute;
+  top: 10px;
+  height: 32px;
+  width: 160px;
+}
+.navbar .navbar-brand-label {
+  margin-left: 160px;
+}
+.footer {
+  margin-top: 50px;
+  color: #999;
+}
+.footer .container {
+  border-top: 1px solid #ccc;
+  padding: 20px 5px 20px 5px;
+  border-radius: 4px;
+}
+.footer a,
+.footer a:visited {
+  color: #999;
+}
+.footer .links {
+  margin: 0;
+  padding: 0;
+}
+.footer .links li {
+  display: inline-block;
+  padding-right: 10px;
+  margin-right: 10px;
+  list-style: none;
+  border-right: 1px dotted #999;
+}
+.footer .links li:last-child {
+  padding-right: 0;
+  margin-right: 0;
+  border: none;
+}
+.ajax-spinner {
+  position: absolute;
+  z-index: 999;
+  display: none;
+  padding: 5px;
+  font-size: inherit;
+  line-height: 11px;
+  background-color: #ccc;
+  border-radius: 4px;
+}
+.ajax-spinner img {
+  width: inherit;
+  height: inherit;
+  margin: 0;
+}
+​ .force-wrap {
+  white-space: pre-wrap;
+/* css-3 */
+  white-space: -moz-pre-wrap !important;
+/* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+/* Opera 4-6 */
+  white-space: -o-pre-wrap;
+/* Opera 7 */
+  word-wrap: break-word;
+/* Internet Explorer 5.5+ */
+}
+.jumbotron {
+  background-color: transparent;
+  text-align: center;
+  padding: 30px 60px;
+}
+.jumbotron h1 {
+  font-weight: bold;
+}
+@media (max-width: ) {
+  .jumbotron h1 {
+    font-size: 49px;
+  }
+}
+@media (min-width: ) {
+  .jumbotron h1 {
+    font-size: 105px;
+  }
+}

@@ -1,0 +1,35 @@
+extends /layout
+
+block header-actions
+  a.pull-right(href='/signin') Log in
+block left-pane
+  h1 Zero to Celeration
+  h1 Charting
+    span  in 2 minutes!
+  p
+    | Join us in the fight against the injustice of non standard
+    | linear charts and imprecise measurements so that all
+    | learners no matter their abilities can learn the way they
+    | each learn best
+block right-pane
+  form(method='POST', action='/signup')
+    h3 Start Charting Today
+    div.alerts
+      if errors && errors.error
+        div.alert.alert-danger.alert-dismissable
+          button.close(type ='button', data-dismiss='alert') &times;
+          | #{errors.error}
+    div.form-group(class!=(errors && errors.fullname) ? "has-error" : "")
+      input.form-control(type='text', name='fullname', value!='#{fullname || ""}',placeholder='Full Name')
+      span.help-block #{(errors && errors.fullname) ? errors.fullname: ''}
+    div.form-group(class!=(errors && errors.email) ? "has-error" : "")
+      input.form-control(type='text', name='email', value!='#{email || ""}',placeholder='Email')
+      span.help-block #{(errors && errors.email) ? errors.email: ''}
+    div.form-group(class!=(errors && errors.password) ? "has-error" : "")
+      input.form-control(type='password', name='password', value!='#{password || ""}',placeholder='Password')
+      span.help-block #{(errors && errors.password) ? errors.password: ''}
+    div.form-group(class!=(errors && errors.orgName) ? "has-error" : "")
+      input.form-control(type='orgName', name='orgName', value!='#{orgName || ""}',placeholder='Organization')
+      span.help-block #{(errors && errors.orgName) ? errors.orgName: ''}
+    div.form-actions
+      button.btn.btn-warning.btn-login(type='submit') Start Charting
